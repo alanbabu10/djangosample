@@ -1,0 +1,23 @@
+<h1>Todo App</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="text" name="title" placeholder="Enter Task">
+
+    <button type="submit">Add Task</button>
+</form>
+
+<hr>
+
+{% for task in tasks %}
+
+<h3>{{ task.title }}</h3>
+
+<a href="/edit/{{ task.id }}/">Edit</a>
+
+<a href="/delete/{{ task.id }}/">Delete</a>
+
+<hr>
+
+{% endfor %}
